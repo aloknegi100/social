@@ -29,6 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/', require('./routes/index'));
 
+app.use(passport.setAuthenticatedUser);
 
 app.listen(port, (err) => {
     if (err) {
