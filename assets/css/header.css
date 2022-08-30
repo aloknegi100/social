@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  display: flex;
+  background-color: rgba(10, 25, 47, 0.85);
+  color: #ccd6f6;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7); }
+  header h1 {
+    margin-left: 1rem; }
+  header #nav-links {
+    width: 10rem;
+    display: flex;
+    list-style: none;
+    color: #ccd6f6;
+    justify-content: space-around;
+    margin-right: 1rem; }
+    header #nav-links a {
+      color: #ccd6f6;
+      text-decoration: none;
+      font-size: large; }
