@@ -12,7 +12,15 @@ module.exports.home=function(req,res){
     //         posts:posts
     //     })  ;
     // })
-    Post.find({}).populate('user').exec(
+    Post.find({})
+    .populate('user')
+    .populate({
+        path:'comments',
+        populate:{
+            path:'user'
+        }
+    })
+    .exec(
         (err,posts)=>{
             if(err)
             {
