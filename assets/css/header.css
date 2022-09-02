@@ -6,8 +6,11 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7); }
-  header h1 {
-    margin-left: 1rem; }
+  header a {
+    text-decoration: none; }
+    header a h1 {
+      color: #ccd6f6;
+      margin-left: 1rem; }
   header #nav-links {
     width: 10rem;
     display: flex;

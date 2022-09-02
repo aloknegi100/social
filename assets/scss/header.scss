@@ -7,10 +7,14 @@ header{
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
-    
-    h1{
-        margin-left: 1rem;
+    a{
+        text-decoration: none;
+        h1{
+            color: $font-color;
+            margin-left: 1rem;
+        }
     }
+    
     #nav-links{
         width: 10rem;
         display: flex;
