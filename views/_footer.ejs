@@ -1,5 +1,9 @@
 <h3>@Coding Ninjas.All Rights Reserved</h3>
 <div id="footer-links">
   <a href="/">Home</a>
-  <a href="/users/profile">profile</a>
+  <% if(locals.user){ %>
+  <a href="/users/profile/<%=user.id%>">profile</a>
+  <% }else{ %>
+  <a href="/">profile</a>
+  <% } %>
 </div>

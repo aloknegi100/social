@@ -14,6 +14,7 @@ module.exports.update=function(req,res){
     if(req.user.id==req.params.id)
     {
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            req.flash('success','Profile updated successfully!');
             return res.redirect('back');
         })
     }
@@ -65,6 +66,7 @@ module.exports.create=function(req,res){
                    console.log("error in creating the user for sign up"); 
                    return res.redirect('back');
                 }
+                req.flash('success','New Profile created successfully!');
                 return res.redirect('/users/sign-in');
 
             })
@@ -78,15 +80,15 @@ module.exports.create=function(req,res){
 
 
 module.exports.createSession=function(req,res){
+    req.flash('success','Logged in Successfully');
    return res.redirect('/');
 }
 
 module.exports.destroySession=function(req,res){
     req.logout(function(err){
-        if(err)
-        {
-            console.log("error in logout");
-        }
+
+         req.flash('success','You have logged out!');
+        return res.redirect('/');
     });
-    return res.redirect('/');
+    
  }
