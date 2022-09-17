@@ -1,8 +1,12 @@
 <link rel="stylesheet" href="/css/profile.css" />
 
-<h1>profile page</h1>
+<img src="<%=user.avatar%>" alt="<%=user.name%>" width="100" />
 <% if(user.id==profile_user.id){ %>
-<form action="/users/update/<%=profile_user.id %> " method="post">
+<form
+  action="/users/update/<%=profile_user.id %> "
+  method="post"
+  enctype="multipart/form-data"
+>
   <input
     type="text"
     placeholder="Your Name"
@@ -17,6 +21,7 @@
     value="<%=user.email%>"
     required
   />
+  <input type="file" name="avatar" placeholder="Profile picture" />
   <input type="submit" value="Update" />
 </form>
 <% } else{%>

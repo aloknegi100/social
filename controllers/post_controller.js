@@ -10,16 +10,19 @@ module.exports.create=async function(req,res){
         });
 
         if(req.xhr){
-            // req.flash('success','Post published!');
+            // let post_detail = await Post.findById(post._id).populate("user");
+            let post_detail=await post.populate('user');
+            let posts=await Post.find({});
+
             return res.status(200).json({
                 data:{
-                    post:post
+                    post:post_detail
                 },
                 message:'post created!'
             });
         }
 
-        req.flash('success','Post published!');
+        // req.flash('success','Post published!');
         return res.redirect('back');
     }
     catch(err)
