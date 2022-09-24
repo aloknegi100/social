@@ -1,22 +1,37 @@
 #home-container{
     display: flex;
     min-height: 100vh;
-    #feed-posts{
-        width: 70%;
-        padding: 10px;
-        li{
-            margin: 10px;
+        #feed-posts{
+            width: 70%;
+            padding: 10px;
+            color: #4b4b4b;
+            #posts-list-container{
+                background-color: #F9F9FA;
+                li{
+                    margin: 10px;
+                    color: #626262;
+                }
+    
+            }
         }
 
-    }
-    #user-friends{
-        padding: 10px;
-        width: 30%;
-        border-left:1px solid #8892b0 ;
-        p{
-            margin: 10px;
-        }
+        
+        #user-friends{
+            padding: 10px;
+            width: 30%;
+            color: #FFFFFF;
+            background-color: #0A2541;
 
-    }
+    
+            h3{
+                border-bottom: 1px solid green;
+            }
+            a{
+                color: #D2D2D6;
+            }
+            p{
+                margin: 10px;
+            }
+        }
 
 }

@@ -10,7 +10,11 @@
   </p>
   <div id="post-comments">
     <% if(locals.user) {%>
-    <form action="/comments/create" method="post">
+    <form
+      action="/comments/create"
+      method="post"
+      id="new-comment-form-<%=post.id%>"
+    >
       <input
         type="text"
         name="content"

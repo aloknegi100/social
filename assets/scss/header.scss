@@ -1,32 +1,50 @@
-$font-color:#ccd6f6;
+$font-color:#FFFFFF;
 header{
+    box-sizing: border-box;
     width: 100%;
     display: flex;
-    background-color: rgba(10, 25, 47, 0.85);
+    height: 3.5rem;
+    background-color: #032D6B;
     color: $font-color;
     justify-content: space-between;
     align-items: center;
+    padding: 14px;
     box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
     a{
         text-decoration: none;
         h1{
             color: $font-color;
-            margin-left: 1rem;
+            
+            
         }
+        
     }
+   
     
     #nav-links{
-        width: 10rem;
+        min-width: 10rem;
         display: flex;
         list-style: none;
         color: $font-color;
         justify-content: space-around;
-        margin-right: 1rem;
-        a{
-            color: $font-color;
-            text-decoration: none;
-            font-size: large;
+        li{
+            a{
+                color: $font-color;
+                text-decoration: none;
+                font-size: large;
+                padding: 13px;
+                
+                &:hover{
+                    border-bottom: 5px solid #af511c ;
+                    position: relative;
+                    top: -2px;
+                    padding: 13px;
+                }
+                
+            }
+    
         }
+       
         
     }
    
