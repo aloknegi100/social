@@ -3,14 +3,14 @@ const Post=require('../models/post');
 const commentsMailer=require('../mailers/comments_mailer');
 const queue=require('../config/kue');
 const commentEmailWorker=require('../workers/comment_email_worker');
+const Like = require('../models/like');
 
 
 module.exports.create=async function(req,res){
     try{
         let post=await Post.findById(req.body.post);
-
         if(post){
-              let comment=await Comment.create({
+                let comment=await Comment.create({
                 content:req.body.content,
                 user:req.user._id,
                 post:req.body.post
@@ -18,6 +18,7 @@ module.exports.create=async function(req,res){
             post.comments.push(comment);
             post.save();
             comment=await comment.populate('user','name email');
+
             // commentsMailer.newComment(comment);
             let job=queue.create('emails',comment).save(function(err){
                 if(err)
@@ -30,10 +31,10 @@ module.exports.create=async function(req,res){
             if(req.xhr)
             {     
                 return res.status(200).json({
-                    data:{
-                        comment:comment
+                    data: {
+                        comment: comment
                     },
-                    message:'comment added!'
+                    message: "Comment deleted"
                 });
             }
            
@@ -60,11 +61,27 @@ module.exports.destroy=async function(req,res){
             comment.remove();
             req.flash('success','Comment deleted!');
             let post=Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}});
+
+            await Like.deleteMany({likeable:comment._id,onModel:'Comment'});
+
+            if (req.xhr)
+            {
+    
+                return res.status(200).json({
+                    data: {
+                        comment: comment
+                    },
+                    message: "Comment deleted"
+                });
+            } 
             return res.redirect('back');
         }
         else{
             return res.redirect('back');
-        } 
+        }
+
+       
+       
 
     }
     catch(err)

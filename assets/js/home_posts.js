@@ -10,10 +10,12 @@
                 data:newPostForm.serialize(),
                 success: function(data){
                     let newPost=newPostDom(data.data.post);
-                    createComment(data.data.post);
                     $('#posts-list-container>ul').prepend(newPost);
                     notification("Post created!");
                     deletePost($(' .delete-post-button',newPost));
+                    new PostComments(data.data.post._id);
+
+                    new ToggleLike($('.toggle-like-button',newPost));
                     
 
                 },
@@ -24,27 +26,7 @@
         }); 
     }
 
-    let createComment=function(post){
-      let newCommentForm=$(`#new-comment-form-${post._id}`);
-      console.log("sdbnbs");
-      newCommentForm.submit(function(e){
-        e.preventDefault();
-          $.ajax({
-              url:'/comments/create',
-              type:'post',
-              data:newCommentForm.serialize(),
-              success: function(data){
-                console.log(data);
-
-                  
-
-              },
-              error:function(error){
-                  console.log(error.resposeText);
-              }
-          })
-      }); 
-  }
+ 
 
     let newPostDom=function(post){
         return $(`<li id="post-${post._id}">
@@ -59,7 +41,7 @@
         </p>
         <div id="post-comments">
          
-        <form action="/comments/create" method="post">
+        <form action="/comments/create" method="post" id="post-${ post._id }-comments-form">
             <input 
               type="text"
               name="content"
@@ -119,7 +101,7 @@
         let deleteButton=$(' .delete-post-button',self);
         deletePost(deleteButton);
         let postId=self.prop('id').split('-')[1];
-        
+        new PostComments(postId);
         
 
       })
