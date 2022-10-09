@@ -22,7 +22,8 @@
         padding: 15px;
         max-width: 100%;
         overflow-wrap: break-word;
-        background-color: #ffa0a0; }
+        background-color: rgba(255, 68, 0, 0.855);
+        color: white; }
       #user-chat-box #chat-messages-list .other-message sub {
         display: block;
         font-size: 10px; }
@@ -34,7 +35,8 @@
         padding: 15px;
         max-width: 100%;
         overflow-wrap: break-word;
-        background-color: #a0dcff; }
+        background-color: blue;
+        color: white; }
       #user-chat-box #chat-messages-list .self-message sub {
         display: block;
         font-size: 10px; }
@@ -52,4 +54,4 @@
       font-size: 25px;
       color: white;
       border: none;
-      background: #58d258; }
+      background: orangered; }
