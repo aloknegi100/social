@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  background-color: rgba(10, 25, 47, 0.85);
+  align-items: center;
+  color: #ccd6f6; }
+  footer #footer-links {
+    margin: .5rem;
+    display: flex;
+    flex-direction: column; }
+    footer #footer-links a {
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #ccd6f6; }
