@@ -37,7 +37,7 @@ class PostComments{
                   $(`#post-comments-${postId}`).append(newComment);
                   pSelf.deleteComment($(' .delete-comment-button', newComment));
 
-                  new ToggleLike($('.toggle-like-button',newPost));
+                  new ToggleLike($('.toggle-like-button',newComment));
 
 
                   new Noty({
