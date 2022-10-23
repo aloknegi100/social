@@ -63,7 +63,9 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl:'mongodb://localhost/codeial_development',
+            // mongoUrl:'mongodb://localhost/codeial_development',//i have to change this
+            
+            mongoUrl:process.env.mongo_url || 'mongodb://localhost/codeial_development',
             autoRemove:'disabled',
             touchAfter: 24 * 3600
         },function(err){
